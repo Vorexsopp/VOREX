@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Galaxy Gum Cigarettes – Wähle deine Marke und deinen Lieblingsgeschmack. Futuristischer Space-Shop.">
+  <title>Vorex Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌌</text></svg>">
+</head>
+
+<body>
+
+  <!-- ===== STAR BACKGROUND ===== -->
+  <div id="galaxy-bg">
+    <canvas id="starfield"></canvas>
+  </div>
+  <div class="galaxy-gradient"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Vorex.Shop</span>
+      <h1>Vorex<br>Products</h1>
+      <p>Wähle dein Produkt und deinen Lieblingsgeschmack – direkt aus Deutschland zu dir.</p>
+      <a href="#products" class="hero-cta">
+        Jetzt entdecken
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 5v14m0 0l-5-5m5 5l5-5" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="section" id="products">
+    <div class="container">
+      <h2 class="section-title">Wähle dein Erlebnis</h2>
+      <p class="section-subtitle">In 3 einfachen Schritten zu deinem High</p>
+
+      <!-- Steps Indicator -->
+      <div class="steps-indicator">
+        <div class="step-dot active">1</div>
+        <div class="step-connector"></div>
+        <div class="step-dot">2</div>
+        <div class="step-connector"></div>
+        <div class="step-dot">3</div>
+        <div class="step-connector"></div>
+        <div class="step-dot">4</div>
+      </div>
+
+      <!-- STEP 1: Brand -->
+      <h3 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Schritt 1 – Produkt wählen</h3>
+      <p class="section-subtitle" style="margin-bottom:32px;">Wähle dein Lieblingsproduct</p>
+
+      <div class="brands-grid">
+        <!-- Nebula -->
+        <div class="brand-card" data-brand="nebula">
+          <div class="brand-icon"></div>
+          <h3>15k Vape</h3>
+          <p>Gute Qualität</p>
+        </div>
+        <!-- Stardust -->
+        <div class="brand-card" data-brand="stardust">
+          <div class="brand-icon"></div>
+          <h3>Zsnus</h3>
+          <p>Klassiker</p>
+        </div>
+        <!-- Cosmic -->
+        <div class="brand-card coming-soon" data-brand="cosmic">
+          <div class="coming-soon-badge">Bald erhältlich!</div>
+          <div class="brand-icon"></div>
+          <h3>Böller</h3>
+          <p>Laute Kraft</p>
+        </div>
+        <!-- Aurora -->
+        <div class="brand-card coming-soon" data-brand="aurora">
+          <div class="coming-soon-badge">Bald erhältlich!</div>
+          <div class="brand-icon"></div>
+          <h3>Ha3sh</h3>
+          <p>Frisch Angebaut</p>
+        </div>
+      </div>
+
+      <!-- STEP 2: Flavor -->
+      <div class="flavor-section" style="margin-top: 60px;">
+        <h3 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Schritt 2 – Geschmack wählen</h3>
+        <p class="section-subtitle" style="margin-bottom:32px;">Welcher Flavor darf es sein?</p>
+
+        <div class="flavors-grid">
+          <!-- Flavor cards werden dynamisch generiert -->
+        </div>
+      </div>
+
+      <!-- PRODUCT PREVIEW -->
+      <div class="preview-section" style="margin-top: 60px;">
+        <h3 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Deine Auswahl</h3>
+        <p class="section-subtitle" style="margin-bottom:32px;">So sieht dein Produkt aus</p>
+
+        <div class="preview-container">
+          <div class="preview-image-wrap">
+            <div class="preview-product-visual">
+              <div class="pack-body">
+                <div class="pack-glow"></div>
+                <span class="pack-emoji">🍃</span>
+                <span class="pack-brand">Nebula</span>
+                <span class="pack-flavor">Mint Edition</span>
+                <div class="pack-lines">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-info">
+            <h2>Nebula – Mint</h2>
+            <p class="preview-desc">Erfrischend kühl mit einem Hauch von Menthol. Tiefes Universum trifft Geschmack.</p>
+            <div class="preview-price">€2.49</div>
+            <div class="preview-price-note">pro Packung · inkl. MwSt.</div>
+            <button class="btn-order" id="btn-order">
+              Jetzt bestellen
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ORDER FORM ===== -->
+  <section class="section order-section" id="order">
+    <div class="container">
+      <h2 class="section-title">Bestellung aufgeben</h2>
+      <p class="section-subtitle">Fülle das Formular aus und schließe deine Bestellung ab</p>
+
+      <form class="order-form" id="order-form" novalidate>
+        <!-- Summary Bar -->
+        <div class="order-summary-bar">
+          <span class="summary-emoji">🍃</span>
+          <div class="summary-text">
+            <strong>Nebula – Mint</strong>
+            <span>Tiefes Universum trifft Geschmack</span>
+          </div>
+          <span class="summary-price">€2.49</span>
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="order-name">Name</label>
+          <input type="text" id="order-name" placeholder="Dein vollständiger Name" autocomplete="name">
+          <div class="error-msg"></div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="order-email">E-Mail</label>
+          <input type="email" id="order-email" placeholder="deine@email.de" autocomplete="email">
+          <div class="error-msg"></div>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+          <label for="order-address">Lieferadresse / Treffpunkt</label>
+          <textarea id="order-address" placeholder="Adresse oder Treffpunkt eingeben" rows="3"></textarea>
+          <div class="error-msg"></div>
+        </div>
+
+        <!-- Payment -->
+        <div class="form-group">
+          <label>Zahlungsmethode</label>
+          <div class="payment-options">
+            <div class="payment-option" data-method="cash">
+              <span class="pay-icon">💵</span>
+              Cash
+            </div>
+            <div class="payment-option" data-method="paypal">
+              <span class="pay-icon">🅿️</span>
+              PayPal
+            </div>
+          </div>
+
+          <div class="payment-message paypal">
+            📧 Du erhältst nach der Bestellung eine E-Mail mit den PayPal-Zahlungsanweisungen.
+          </div>
+          <div class="payment-message cash">
+            🤝 Die Bezahlung erfolgt bar beim Treffen.
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-submit">
+          Bestellung abschicken 🚀
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== CONFIRMATION ===== -->
+  <section class="section confirmation-section" id="confirmation">
+    <div class="container" style="display:flex;">
+      <div class="confirmation-card">
+        <div class="confirmation-icon">✅</div>
+        <h2>Vielen Dank für deine Bestellung!</h2>
+        <p>Du erhältst in Kürze eine E-Mail-Bestätigung mit allen Details zu deiner Bestellung. Wir freuen uns auf dich!
+          🌌</p>
+        <button class="btn-back-home">
+          ← Zurück zum Shop
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2026 VOREX · Made with 💜 in the High Life</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
