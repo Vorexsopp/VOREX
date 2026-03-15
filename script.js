@@ -52,6 +52,21 @@ const BRANDS = {
       fizzy_cola: { name: 'Fizzy Cola (Nic 9mg)', emoji: '🥤', desc: 'Prickelnde Cola mit 9mg Nikotin' }
     }
   },
+  special: {
+    name: 'Strong Snus',
+    emoji: '🔥',
+    tagline: 'Angebot: 3 für 15€',
+    color: '#ff3333',
+    gradient: 'linear-gradient(135deg, #660000, #330000)',
+    originalPrice: '€25.50',
+    salePrice: '€8.50',
+    priceNote: '1x = 8.50€ | 3x = 15.00€',
+    flavors: {
+      syx_cherry: { name: 'SYX Wild cherry 28.5mg [STRONG]', emoji: '🍒', desc: 'Starke Wildkirsche (28.5mg)' },
+      klint_strawberry: { name: 'Klint Strawberry mini 8mg [STRONG]', emoji: '🍓', desc: 'Süße Erdbeere (8mg)' },
+      pablo_blue_razz: { name: 'Pablo Exclusive Blue Rasberry 50mg [STRONG]', emoji: '🫐', desc: 'Intensive Blaue Himbeere (50mg)' }
+    }
+  },
   cosmic: {
     name: 'Böller',
     emoji: '',
@@ -63,12 +78,17 @@ const BRANDS = {
   },
   aurora: {
     name: 'Ha3sh',
-    emoji: '',
+    emoji: '🌿',
     tagline: 'Frisch Angebaut',
     color: '#4dfff3',
     gradient: 'linear-gradient(135deg, #1b6960, #0a3e38)',
-    comingSoon: true,
-    flavors: {}
+    originalPrice: '',
+    salePrice: '€8.50',
+    priceNote: '1x 1 Gramm',
+    flavors: {
+      pur: { name: 'Pur', emoji: '🌿', desc: '1 Gramm purer Genuss' },
+      vor_gerollt: { name: 'Vor gerollt', emoji: '🚬', desc: 'Bereits vorgerollt für dich' }
+    }
   }
 };
 
@@ -415,9 +435,71 @@ function resetAll() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ===== GSAP ANIMATIONS =====
+function initGSAP() {
+  // Register plugin
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Reveal
+    gsap.fromTo('.reveal-up', 
+      { y: 50, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 1, 
+        stagger: 0.2, 
+        ease: 'power3.out',
+        delay: 0.2
+      }
+    );
+
+    gsap.fromTo('.reveal-scale',
+      { scale: 0.8, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out', delay: 0.5 }
+    );
+
+    // Navbar Effect
+    const navbar = document.getElementById('navbar');
+    // We already have a glassmorphism base, but we can animate an extra shadow on scroll
+    ScrollTrigger.create({
+      start: 'top -50',
+      end: 99999,
+      toggleClass: {className: 'scrolled', targets: navbar}
+    });
+
+    // Animate section headings
+    gsap.utils.toArray('.section-title').forEach(title => {
+      gsap.fromTo(title,
+        { y: 30, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: title,
+            start: 'top 85%',
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out'
+        }
+      );
+    });
+
+    // Stagger Brand Cards
+    ScrollTrigger.batch('.brand-card', {
+      onEnter: batch => gsap.fromTo(batch,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out' }
+      ),
+      start: 'top 85%'
+    });
+  }
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   initStars();
+  initGSAP();
 
   // Brand click
   $$('.brand-card').forEach(card => {
@@ -446,9 +528,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hero CTA
+  // Hero CTA smooth scroll (handled natively via CSS, but JS helps precision)
   $('.hero-cta')?.addEventListener('click', (e) => {
     e.preventDefault();
     $('#products').scrollIntoView({ behavior: 'smooth' });
+  });
+  
+  // Navbar smooth scroll
+  $$('.nav-links a')?.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = $(link.getAttribute('href'));
+      if(target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   });
 });

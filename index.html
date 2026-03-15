@@ -4,9 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Galaxy Gum Cigarettes – Wähle deine Marke und deinen Lieblingsgeschmack. Futuristischer Space-Shop.">
+  <meta name="description" content="Vorex Shop – Premium Produkte. Wähle deine Marke und deinen Lieblingsgeschmack.">
   <title>Vorex Shop</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌌</text></svg>">
@@ -14,28 +21,55 @@
 
 <body>
 
-  <!-- ===== STAR BACKGROUND ===== -->
+  <!-- ===== GALAXY BACKGROUND (Subtle) ===== -->
   <div id="galaxy-bg">
-    <canvas id="starfield"></canvas>
+    <canvas id="starfield" style="opacity: 0.3;"></canvas>
   </div>
-  <div class="galaxy-gradient"></div>
+  <div class="ambient-glow"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="logo.png" alt="Vorex Logo" class="logo-img">
+        Vorex
+      </a>
+      <ul class="nav-links">
+        <li><a href="#products">Produkte</a></li>
+        <li><a href="#order">Bestellen</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <span class="hero-badge">Vorex.Shop</span>
-      <h1>Vorex<br>Products</h1>
-      <p>Wähle dein Produkt und deinen Lieblingsgeschmack – direkt aus Deutschland zu dir.</p>
-      <a href="#products" class="hero-cta">
-        Jetzt entdecken
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-          stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
-      </a>
+    <div class="hero-bg">
+      <img src="logo.png" alt="Vorex Background" class="hero-img">
+      <div class="hero-overlay"></div>
     </div>
+
+    <div class="hero-content">
+      <div class="hero-badge-wrap reveal-up">
+        <span class="hero-badge">Neues Level erleben</span>
+      </div>
+      <h1 class="reveal-up">Vorex<br>Products</h1>
+      <p class="reveal-up">Premium Qualität. Wähle dein Produkt und deinen Lieblingsgeschmack – direkt aus Deutschland
+        zu dir.</p>
+      <div class="hero-actions reveal-up">
+        <a href="#products" class="hero-cta">
+          Jetzt entdecken
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Glass Orbs removed in favor of image background for a cleaner look -->
+
     <div class="hero-scroll">
-      <span>Scroll</span>
+      <span>Entdecken</span>
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path d="M12 5v14m0 0l-5-5m5 5l5-5" />
       </svg>
@@ -63,81 +97,90 @@
       <h3 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Schritt 1 – Produkt wählen</h3>
       <p class="section-subtitle" style="margin-bottom:32px;">Wähle dein Lieblingsproduct</p>
 
-      <div class="brands-grid">
-        <!-- Nebula -->
-        <div class="brand-card" data-brand="nebula">
-          <div class="brand-icon"></div>
-          <h3>15k Vape</h3>
-          <p>Gute Qualität</p>
-        </div>
-        <!-- Stardust -->
-        <div class="brand-card" data-brand="stardust">
-          <div class="brand-icon"></div>
-          <h3>Zsnus</h3>
-          <p>Klassiker</p>
-        </div>
-        <!-- Cosmic -->
-        <div class="brand-card coming-soon" data-brand="cosmic">
-          <div class="coming-soon-badge">Bald erhältlich!</div>
-          <div class="brand-icon"></div>
-          <h3>Böller</h3>
-          <p>Laute Kraft</p>
-        </div>
-        <!-- Aurora -->
-        <div class="brand-card coming-soon" data-brand="aurora">
-          <div class="coming-soon-badge">Bald erhältlich!</div>
-          <div class="brand-icon"></div>
-          <h3>Ha3sh</h3>
-          <p>Frisch Angebaut</p>
-        </div>
+      <!-- Nebula -->
+      <div class="brand-card" data-brand="nebula">
+        <div class="brand-icon"><img src="resource/nebula.png"
+            style="width:100%; height:100%; object-fit:contain; border-radius:12px;" alt="15k Vape"></div>
+        <h3>15k Vape</h3>
+        <p>Gute Qualität</p>
       </div>
-
-      <!-- STEP 2: Flavor -->
-      <div class="flavor-section" style="margin-top: 60px;">
-        <h3 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Schritt 2 – Geschmack wählen</h3>
-        <p class="section-subtitle" style="margin-bottom:32px;">Welcher Flavor darf es sein?</p>
-
-        <div class="flavors-grid">
-          <!-- Flavor cards werden dynamisch generiert -->
-        </div>
+      <!-- Stardust -->
+      <div class="brand-card" data-brand="stardust">
+        <div class="brand-icon"><img src="resource/stardust.png"
+            style="width:100%; height:100%; object-fit:contain; border-radius:12px;" alt="Zsnus"></div>
+        <h3>Zsnus</h3>
+        <p>Klassiker</p>
       </div>
+      <!-- Special Deal -->
+      <div class="brand-card" data-brand="special">
+        <div class="brand-icon"><img src="resource/special.png"
+            style="width:100%; height:100%; object-fit:contain; border-radius:12px;" alt="Strong Snus"></div>
+        <h3>Strong Zsnus</h3>
+        <p>Angebot: 3 für 15€</p>
+      </div>
+      <!-- Cosmic -->
+      <div class="brand-card coming-soon" data-brand="cosmic">
+        <div class="coming-soon-badge">Bald erhältlich!</div>
+        <div class="brand-icon"><img src="resource/cosmic.png"
+            style="width:100%; height:100%; object-fit:contain; border-radius:12px;" alt="Böller"></div>
+        <h3>Böller</h3>
+        <p>Laute Kraft</p>
+      </div>
+      <!-- Aurora -->
+      <div class="brand-card" data-brand="aurora">
+        <div class="brand-icon"><img src="resource/aurora.png"
+            style="width:100%; height:100%; object-fit:contain; border-radius:12px;" alt="Ha3sh"></div>
+        <h3>Ha3sh</h3>
+        <p>Frisch Angebaut</p>
+      </div>
+    </div>
 
-      <!-- PRODUCT PREVIEW -->
-      <div class="preview-section" style="margin-top: 60px;">
-        <h3 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Deine Auswahl</h3>
-        <p class="section-subtitle" style="margin-bottom:32px;">So sieht dein Produkt aus</p>
+    <!-- STEP 2: Flavor -->
+    <div class="flavor-section" style="margin-top: 60px;">
+      <h3 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Schritt 2 – Geschmack wählen</h3>
+      <p class="section-subtitle" style="margin-bottom:32px;">Welcher Flavor darf es sein?</p>
 
-        <div class="preview-container">
-          <div class="preview-image-wrap">
-            <div class="preview-product-visual">
-              <div class="pack-body">
-                <div class="pack-glow"></div>
-                <span class="pack-emoji">🍃</span>
-                <span class="pack-brand">Nebula</span>
-                <span class="pack-flavor">Mint Edition</span>
-                <div class="pack-lines">
-                  <span></span><span></span><span></span><span></span><span></span>
-                </div>
+      <div class="flavors-grid">
+        <!-- Flavor cards werden dynamisch generiert -->
+      </div>
+    </div>
+
+    <!-- PRODUCT PREVIEW -->
+    <div class="preview-section" style="margin-top: 60px;">
+      <h3 class="section-title" style="font-size:1.4rem; margin-bottom:8px;">Deine Auswahl</h3>
+      <p class="section-subtitle" style="margin-bottom:32px;">So sieht dein Produkt aus</p>
+
+      <div class="preview-container">
+        <div class="preview-image-wrap">
+          <div class="preview-product-visual">
+            <div class="pack-body">
+              <div class="pack-glow"></div>
+              <span class="pack-emoji">🍃</span>
+              <span class="pack-brand">Nebula</span>
+              <span class="pack-flavor">Mint Edition</span>
+              <div class="pack-lines">
+                <span></span><span></span><span></span><span></span><span></span>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="preview-info">
-            <h2>Nebula – Mint</h2>
-            <p class="preview-desc">Erfrischend kühl mit einem Hauch von Menthol. Tiefes Universum trifft Geschmack.</p>
-            <div class="preview-price">€2.49</div>
-            <div class="preview-price-note">pro Packung · inkl. MwSt.</div>
-            <button class="btn-order" id="btn-order">
-              Jetzt bestellen
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
-              </svg>
-            </button>
-          </div>
+        <div class="preview-info">
+          <h2>Nebula – Mint</h2>
+          <p class="preview-desc">Erfrischend kühl mit einem Hauch von Menthol. Tiefes Universum trifft Geschmack.</p>
+          <div class="preview-price">€2.49</div>
+          <div class="preview-price-note">pro Packung · inkl. MwSt.</div>
+          <button class="btn-order" id="btn-order">
+            Jetzt bestellen
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+            </svg>
+          </button>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -229,6 +272,9 @@
     <p>© 2026 VOREX · Made with 💜 in the High Life</p>
   </footer>
 
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 
